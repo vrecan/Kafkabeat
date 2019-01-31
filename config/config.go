@@ -3,12 +3,16 @@
 
 package config
 
-import "time"
-
+//Config is the struct for all config variables
 type Config struct {
-	Period time.Duration `config:"period"`
+	Brokers []string `config:"brokers"`
+	Topics  []string `config:"topics"`
+	Group   string   `config:"group"`
 }
 
+//DefaultConfig is the default values for configuration variables
 var DefaultConfig = Config{
-	Period: 1 * time.Second,
+	Brokers: []string{"localhost:9092"},
+	Topics:  []string{"events"},
+	Group:   "kafkabeat",
 }
