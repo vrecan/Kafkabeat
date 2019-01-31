@@ -1,0 +1,2 @@
+kafkabeat:
+  period: 1s
