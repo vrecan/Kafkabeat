@@ -1,0 +1,24 @@
+2019-01-31T16:26:08.049-0700	INFO	instance/beat.go:616	Home path: [/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat] Config path: [/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat] Data path: [/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat/data] Logs path: [/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat/logs]
+2019-01-31T16:26:08.050-0700	INFO	instance/beat.go:623	Beat UUID: 36fa0de7-c00a-4380-9a09-9c40594cd754
+2019-01-31T16:26:08.050-0700	INFO	[beat]	instance/beat.go:936	Beat info	{"system_info": {"beat": {"path": {"config": "/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat", "data": "/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat/data", "home": "/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat", "logs": "/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat/logs"}, "type": "kafkabeat", "uuid": "36fa0de7-c00a-4380-9a09-9c40594cd754"}}}
+2019-01-31T16:26:08.050-0700	INFO	[beat]	instance/beat.go:945	Build info	{"system_info": {"build": {"commit": "unknown", "libbeat": "6.6.1", "time": "1754-08-30T22:43:41.128Z", "version": "6.6.1"}}}
+2019-01-31T16:26:08.050-0700	INFO	[beat]	instance/beat.go:948	Go runtime info	{"system_info": {"go": {"os":"darwin","arch":"amd64","max_procs":12,"version":"go1.11.2"}}}
+2019-01-31T16:26:08.052-0700	INFO	[beat]	instance/beat.go:952	Host info	{"system_info": {"host": {"architecture":"x86_64","boot_time":"2019-01-29T10:03:01.960896-07:00","name":"USMAC3034BALDR","ip":["127.0.0.1/8","::1/128","fe80::1/64","fe80::aede:48ff:fe00:1122/64","fe80::10df:84d0:d153:c21b/64","10.0.0.250/24","2601:280:4d00:7f35:1cb7:d441:7ac1:a86a/64","2601:280:4d00:7f35:1924:94f:76bb:d933/64","2601:280:4d00:7f35::c275/64","fe80::18a6:99ff:fe04:ff00/64","fe80::c66f:895d:c63d:171b/64"],"kernel_version":"18.2.0","mac":["ac:de:48:00:11:22","f2:18:98:99:e1:54","f0:18:98:99:e1:54","02:18:98:99:e1:54","1a:a6:99:04:ff:00","f2:00:b4:82:10:04","f2:00:b4:82:10:01","f2:00:b4:82:10:00","f2:00:b4:82:10:05","f2:00:b4:82:10:01"],"os":{"family":"darwin","platform":"darwin","name":"Mac OS X","version":"10.14.2","major":10,"minor":14,"patch":2,"build":"18C54"},"timezone":"MST","timezone_offset_sec":-25200,"id":"EE38A30B-A9BF-5C3C-B1BA-A46DB7C0D88D"}}}
+2019-01-31T16:26:08.052-0700	INFO	[beat]	instance/beat.go:981	Process info	{"system_info": {"process": {"cwd": "/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat", "exe": "./Kafkabeat", "name": "Kafkabeat", "pid": 52774, "ppid": 26726, "start_time": "2019-01-31T16:26:07.748-0700"}}}
+2019-01-31T16:26:08.052-0700	INFO	instance/beat.go:281	Setup Beat: kafkabeat; Version: 6.6.1
+2019-01-31T16:26:11.054-0700	INFO	add_cloud_metadata/add_cloud_metadata.go:319	add_cloud_metadata: hosting provider type not detected.
+2019-01-31T16:26:11.054-0700	INFO	elasticsearch/client.go:165	Elasticsearch url: http://localhost:9200
+2019-01-31T16:26:11.055-0700	INFO	[publisher]	pipeline/module.go:110	Beat name: USMAC3034BALDR
+2019-01-31T16:26:11.055-0700	INFO	[monitoring]	log/log.go:117	Starting metrics logging every 30s
+2019-01-31T16:26:11.055-0700	INFO	instance/beat.go:403	kafkabeat start running.
+2019-01-31T16:26:11.055-0700	INFO	beater/kafkabeat.go:37	kafkabeat is running! Hit CTRL-C to stop it.
+2019-01-31T16:26:12.058-0700	INFO	beater/kafkabeat.go:62	Event sent
+2019-01-31T16:26:13.056-0700	INFO	beater/kafkabeat.go:62	Event sent
+2019-01-31T16:26:13.060-0700	INFO	pipeline/output.go:95	Connecting to backoff(elasticsearch(http://localhost:9200))
+2019-01-31T16:26:14.057-0700	INFO	beater/kafkabeat.go:62	Event sent
+2019-01-31T16:26:14.300-0700	ERROR	instance/metrics.go:91	Error while getting memory usage: error retrieving process stats: cannot find matching process for pid=52774
+2019-01-31T16:26:14.301-0700	ERROR	instance/metrics.go:135	Error retrieving CPU percentages: error retrieving process stats: cannot find matching process for pid=52774
+2019-01-31T16:26:14.301-0700	INFO	[monitoring]	log/log.go:152	Total non-zero metrics	{"monitoring": {"metrics": {"beat":{"info":{"ephemeral_id":"debadbce-915f-49a2-9561-0c76f528bf3e","uptime":{"ms":6255}},"memstats":{"gc_next":4194304,"memory_alloc":2315008,"memory_total":3897096}},"libbeat":{"config":{"module":{"running":0}},"output":{"type":"elasticsearch"},"pipeline":{"clients":0,"events":{"active":3,"published":3,"total":3}}},"system":{"cpu":{"cores":12},"load":{"1":2.5532,"15":2.0757,"5":1.9937,"norm":{"1":0.2128,"15":0.173,"5":0.1661}}}}}}
+2019-01-31T16:26:14.301-0700	INFO	[monitoring]	log/log.go:153	Uptime: 6.256059774s
+2019-01-31T16:26:14.301-0700	INFO	[monitoring]	log/log.go:130	Stopping metrics logging.
+2019-01-31T16:26:14.301-0700	INFO	instance/beat.go:413	kafkabeat stopped.

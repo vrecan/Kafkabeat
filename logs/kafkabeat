@@ -1,0 +1,64 @@
+2019-01-31T16:26:30.476-0700	INFO	instance/beat.go:616	Home path: [/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat] Config path: [/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat] Data path: [/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat/data] Logs path: [/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat/logs]
+2019-01-31T16:26:30.477-0700	DEBUG	[beat]	instance/beat.go:653	Beat metadata path: /Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat/data/meta.json
+2019-01-31T16:26:30.477-0700	INFO	instance/beat.go:623	Beat UUID: 36fa0de7-c00a-4380-9a09-9c40594cd754
+2019-01-31T16:26:30.477-0700	DEBUG	[seccomp]	seccomp/seccomp.go:88	Syscall filtering is only supported on Linux
+2019-01-31T16:26:30.477-0700	INFO	[beat]	instance/beat.go:936	Beat info	{"system_info": {"beat": {"path": {"config": "/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat", "data": "/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat/data", "home": "/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat", "logs": "/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat/logs"}, "type": "kafkabeat", "uuid": "36fa0de7-c00a-4380-9a09-9c40594cd754"}}}
+2019-01-31T16:26:30.477-0700	INFO	[beat]	instance/beat.go:945	Build info	{"system_info": {"build": {"commit": "unknown", "libbeat": "6.6.1", "time": "1754-08-30T22:43:41.128Z", "version": "6.6.1"}}}
+2019-01-31T16:26:30.477-0700	INFO	[beat]	instance/beat.go:948	Go runtime info	{"system_info": {"go": {"os":"darwin","arch":"amd64","max_procs":12,"version":"go1.11.2"}}}
+2019-01-31T16:26:30.478-0700	INFO	[beat]	instance/beat.go:952	Host info	{"system_info": {"host": {"architecture":"x86_64","boot_time":"2019-01-29T10:03:01.960896-07:00","name":"USMAC3034BALDR","ip":["127.0.0.1/8","::1/128","fe80::1/64","fe80::aede:48ff:fe00:1122/64","fe80::10df:84d0:d153:c21b/64","10.0.0.250/24","2601:280:4d00:7f35:1cb7:d441:7ac1:a86a/64","2601:280:4d00:7f35:1924:94f:76bb:d933/64","2601:280:4d00:7f35::c275/64","fe80::18a6:99ff:fe04:ff00/64","fe80::c66f:895d:c63d:171b/64"],"kernel_version":"18.2.0","mac":["ac:de:48:00:11:22","f2:18:98:99:e1:54","f0:18:98:99:e1:54","02:18:98:99:e1:54","1a:a6:99:04:ff:00","f2:00:b4:82:10:04","f2:00:b4:82:10:01","f2:00:b4:82:10:00","f2:00:b4:82:10:05","f2:00:b4:82:10:01"],"os":{"family":"darwin","platform":"darwin","name":"Mac OS X","version":"10.14.2","major":10,"minor":14,"patch":2,"build":"18C54"},"timezone":"MST","timezone_offset_sec":-25200,"id":"EE38A30B-A9BF-5C3C-B1BA-A46DB7C0D88D"}}}
+2019-01-31T16:26:30.479-0700	INFO	[beat]	instance/beat.go:981	Process info	{"system_info": {"process": {"cwd": "/Users/ben.aldrich/go/src/github.com/vrecan/Kafkabeat", "exe": "./Kafkabeat", "name": "Kafkabeat", "pid": 52789, "ppid": 26726, "start_time": "2019-01-31T16:26:30.451-0700"}}}
+2019-01-31T16:26:30.479-0700	INFO	instance/beat.go:281	Setup Beat: kafkabeat; Version: 6.6.1
+2019-01-31T16:26:30.479-0700	DEBUG	[beat]	instance/beat.go:302	Initializing output plugins
+2019-01-31T16:26:30.479-0700	DEBUG	[filters]	add_cloud_metadata/add_cloud_metadata.go:160	add_cloud_metadata: starting to fetch metadata, timeout=3s
+2019-01-31T16:26:30.481-0700	DEBUG	[filters]	add_cloud_metadata/add_cloud_metadata.go:192	add_cloud_metadata: received disposition for qcloud after 1.568486ms. result=[provider:qcloud, error=failed requesting qcloud metadata: Get http://metadata.tencentyun.com/meta-data/instance-id: dial tcp: lookup metadata.tencentyun.com: no such host, metadata={}]
+2019-01-31T16:26:33.483-0700	DEBUG	[filters]	add_cloud_metadata/add_cloud_metadata.go:192	add_cloud_metadata: received disposition for ec2 after 3.003594527s. result=[provider:ec2, error=failed requesting ec2 metadata: Get http://169.254.169.254/2014-02-25/dynamic/instance-identity/document: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers), metadata={}]
+2019-01-31T16:26:33.483-0700	DEBUG	[filters]	add_cloud_metadata/add_cloud_metadata.go:199	add_cloud_metadata: timed-out waiting for all responses
+2019-01-31T16:26:33.483-0700	DEBUG	[filters]	add_cloud_metadata/add_cloud_metadata.go:163	add_cloud_metadata: fetchMetadata ran for 3.003910345s
+2019-01-31T16:26:33.483-0700	INFO	add_cloud_metadata/add_cloud_metadata.go:319	add_cloud_metadata: hosting provider type not detected.
+2019-01-31T16:26:33.483-0700	DEBUG	[processors]	processors/processor.go:66	Processors: add_host_metadata=[netinfo.enabled=[false], cache.ttl=[5m0s]], add_cloud_metadata=null
+2019-01-31T16:26:33.484-0700	INFO	elasticsearch/client.go:165	Elasticsearch url: http://localhost:9200
+2019-01-31T16:26:33.484-0700	DEBUG	[publish]	pipeline/consumer.go:137	start pipeline event consumer
+2019-01-31T16:26:33.484-0700	INFO	[publisher]	pipeline/module.go:110	Beat name: USMAC3034BALDR
+2019-01-31T16:26:33.484-0700	INFO	[monitoring]	log/log.go:117	Starting metrics logging every 30s
+2019-01-31T16:26:33.484-0700	INFO	instance/beat.go:403	kafkabeat start running.
+2019-01-31T16:26:33.485-0700	INFO	beater/kafkabeat.go:37	kafkabeat is running! Hit CTRL-C to stop it.
+2019-01-31T16:26:34.490-0700	DEBUG	[publish]	pipeline/processor.go:308	Publish event: {
+  "@timestamp": "2019-01-31T23:26:34.489Z",
+  "@metadata": {
+    "beat": "kafkabeat",
+    "type": "doc",
+    "version": "6.6.1"
+  },
+  "counter": 1,
+  "type": "USMAC3034BALDR",
+  "beat": {
+    "name": "USMAC3034BALDR",
+    "hostname": "USMAC3034BALDR",
+    "version": "6.6.1"
+  },
+  "host": {
+    "name": "USMAC3034BALDR",
+    "architecture": "x86_64",
+    "os": {
+      "name": "Mac OS X",
+      "build": "18C54",
+      "platform": "darwin",
+      "version": "10.14.2",
+      "family": "darwin"
+    },
+    "id": "EE38A30B-A9BF-5C3C-B1BA-A46DB7C0D88D"
+  }
+}
+2019-01-31T16:26:34.490-0700	INFO	beater/kafkabeat.go:62	Event sent
+2019-01-31T16:26:34.841-0700	DEBUG	[service]	service/service.go:50	Received sigterm/sigint, stopping
+2019-01-31T16:26:34.841-0700	DEBUG	[publish]	pipeline/client.go:148	client: closing acker
+2019-01-31T16:26:34.841-0700	DEBUG	[publish]	pipeline/client.go:150	client: done closing acker
+2019-01-31T16:26:34.841-0700	DEBUG	[publish]	pipeline/client.go:154	client: cancelled 0 events
+2019-01-31T16:26:34.841-0700	DEBUG	[processes]	process/process.go:465	Process name does not matches the provided regex; pid=52789; name=Kafkabeat: <nil>
+2019-01-31T16:26:34.841-0700	ERROR	instance/metrics.go:91	Error while getting memory usage: error retrieving process stats: cannot find matching process for pid=52789
+2019-01-31T16:26:34.841-0700	DEBUG	[processes]	process/process.go:465	Process name does not matches the provided regex; pid=52789; name=Kafkabeat: <nil>
+2019-01-31T16:26:34.841-0700	ERROR	instance/metrics.go:135	Error retrieving CPU percentages: error retrieving process stats: cannot find matching process for pid=52789
+2019-01-31T16:26:34.841-0700	INFO	[monitoring]	log/log.go:152	Total non-zero metrics	{"monitoring": {"metrics": {"beat":{"info":{"ephemeral_id":"a943fc14-7e33-4e89-ac77-0dc66517c559","uptime":{"ms":4370}},"memstats":{"gc_next":4194304,"memory_alloc":2155480,"memory_total":3743464}},"libbeat":{"config":{"module":{"running":0}},"output":{"type":"elasticsearch"},"pipeline":{"clients":0,"events":{"active":1,"published":1,"total":1}}},"system":{"cpu":{"cores":12},"load":{"1":2.1226,"15":2.0503,"5":1.9287,"norm":{"1":0.1769,"15":0.1709,"5":0.1607}}}}}}
+2019-01-31T16:26:34.841-0700	INFO	[monitoring]	log/log.go:153	Uptime: 4.370878363s
+2019-01-31T16:26:34.841-0700	INFO	[monitoring]	log/log.go:130	Stopping metrics logging.
+2019-01-31T16:26:34.841-0700	INFO	instance/beat.go:413	kafkabeat stopped.

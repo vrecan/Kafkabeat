@@ -42,7 +42,7 @@ func (bt *Kafkabeat) Run(b *beat.Beat) error {
 		return err
 	}
 
-	ticker := time.NewTicker(bt.config.Period)
+	ticker := time.NewTicker(time.Second * 1)
 	counter := 1
 	for {
 		select {
