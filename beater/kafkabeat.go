@@ -8,14 +8,16 @@ import (
 	"github.com/elastic/beats/libbeat/common"
 	"github.com/elastic/beats/libbeat/logp"
 
+	cluster "github.com/bsm/sarama-cluster"
 	"github.com/vrecan/kafkabeat/config"
 )
 
 // Kafkabeat configuration.
 type Kafkabeat struct {
-	done   chan struct{}
-	config config.Config
-	client beat.Client
+	done        chan struct{}
+	config      config.Config
+	clusterConf *cluster.Config
+	client      beat.Client
 }
 
 // New creates an instance of kafkabeat.
@@ -24,10 +26,14 @@ func New(b *beat.Beat, cfg *common.Config) (beat.Beater, error) {
 	if err := cfg.Unpack(&c); err != nil {
 		return nil, fmt.Errorf("Error reading config file: %v", err)
 	}
+	config := cluster.NewConfig()
+	config.Consumer.Return.Errors = true
+	config.Group.Return.Notifications = true
 
 	bt := &Kafkabeat{
-		done:   make(chan struct{}),
-		config: c,
+		done:        make(chan struct{}),
+		config:      c,
+		clusterConf: config,
 	}
 	return bt, nil
 }
@@ -41,26 +47,38 @@ func (bt *Kafkabeat) Run(b *beat.Beat) error {
 	if err != nil {
 		return err
 	}
-
-	ticker := time.NewTicker(time.Second * 1)
-	counter := 1
+	consumer, err := cluster.NewConsumer(bt.config.Brokers, bt.config.Group, bt.config.Topics, bt.clusterConf)
+	if err != nil {
+		return err
+	}
+	defer consumer.Close()
+	errChan := consumer.Errors()
+	notifyChan := consumer.Notifications()
+	kafkaMsgs := consumer.Messages()
+	cnt := 1
 	for {
 		select {
+
+		case err := <-errChan:
+			fmt.Println("Kafka Error: ", err)
+		case notify := <-notifyChan:
+			fmt.Println("Kafka Notification: ", notify)
+		case msg := <-kafkaMsgs:
+			event := beat.Event{
+				Timestamp: time.Now(),
+				Fields: common.MapStr{
+					"type": b.Info.Name,
+					"cnt":  cnt,
+					"msg":  msg,
+				},
+			}
+			bt.client.Publish(event)
+			logp.Info("Event sent")
+			cnt++
 		case <-bt.done:
 			return nil
-		case <-ticker.C:
 		}
 
-		event := beat.Event{
-			Timestamp: time.Now(),
-			Fields: common.MapStr{
-				"type":    b.Info.Name,
-				"counter": counter,
-			},
-		}
-		bt.client.Publish(event)
-		logp.Info("Event sent")
-		counter++
 	}
 }
 
